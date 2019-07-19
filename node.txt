@@ -167,9 +167,10 @@ svn      集中式管理系统   1.本地  2.服务区
 分布式：：1.本地区   2.暂存区   3.服务区
 git init 项目初始化
 git status  查看当前项目的状态
-git add     添加所有文件缓存   git add <File>
+git add  .   添加所有文件缓存   git add <File>
 git commit -m “注释”  提交
 git remote add origin
+git push -u origin  master
 身份效验：
 git config global user.name   ''  校验
 git config global user.email  ''
