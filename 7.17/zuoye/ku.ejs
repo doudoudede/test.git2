@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            li{
+                float: left;
+                list-style: none;
+            }
+        </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <% for(var i=0;i<teacher.length;i++){%>
+            <li><%=teacher[i].name%></li>
+            <li><%=teacher[i].type%></li>
+            <li><%=teacher[i].number%></li>
+            <%}%>
+        </ul>
+    </div>
+</body>
+</html>

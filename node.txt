@@ -1,0 +1,208 @@
+html：超文本标记语言   css：层叠样式表   js：解释性的脚本语言   jq：依赖js的大型函数库
+
+语言分为两类：编译型和解释性
+             (c)    (js)
+2009.2  在柏林大会上发表，5月问世，2016年上下分离，火遍全球
+node.js:让js运行在服务器端的开发平台（只是平台，不是语言）
+三p: PHP JSP ASP  
+node.js 是一个基于Chrome JavaScript 运行时建立的一个平台
+node.js 是一个事件驱动I/o服务端JavaScript环境，基于Goohle的V8引擎执行JavaScript
+的速度非常快，性能非常好。
+【node】的特点：1.单线程  2.非阻塞I/o  3.事件驱动
+1.单线程：
+    进程>线程
+    java多线程，硬件成本上升，
+    node.js单线程
+    同步影响操作，阻塞
+2.非阻塞I/o    input和output  
+事件与回调
+3.事件驱动  事件环
+应用：1.用户表单收集
+      2.聊天室
+      3.豆瓣
+      4.图文直播
+【node.js的优缺点】
+优点：1.高并发
+      2.适合I/o密集型应用
+缺点：1.不适合CPU密集型
+      2.
+【线程和进程的区别】
+--------------------------------------------------------------------------------------------
+
+
+http.createServe((req(请求),res(响应))=>{
+      //解决乱码： res.writeHead(200,{"Content-type":"text/html;charset:utf-8"})
+}).listen(3000)监听端口
+url.parse(strurl,true)
+【fs】 为模块---------------------------------------------------------------------------------
+readFile
+相对文件进行操作
+1.读文件：fs.readFile(异步)  fs.readFileasyn
+2.写文件:writeFile("文件","内容"，（err）=》{if(err){throw error}})
+被覆盖时：1.用appendFile
+            a:追加  r:读  w：写
+         2.writeFile("文件","内容",{flag:"a"},（err）=》{if(err){throw error}})
+3.复制  copyFile
+4.改名  rename('文件'，'新文件名'，回调)
+5.删除  unlink('文件'，回调)
+6.创建目录  mkdir
+7.删除目录  rmdir('文件')
+8.读取目录  readdir
+9.查看目录信息  stat
+10.isFile  //判断是否为文件
+11.isDirectory() //判断是否为目录
+12.读取大文件：流  stream      createReadStream   创建一个读取文件流
+              data  数据读取的过程   end 数据读取完毕
+              块  
+------------------------------------------------------------------------------------------------------
+//cmd(sea.js)    amd(require.js)的区别:
+1.RequireJS在主文件里是将所有的文件同时加载，然而SeaJS强调一个文件一个模块。
+2.AMD推崇依赖前置，CMD推崇依赖就近。
+AMD加载完模块后，就立马执行该模块；CMD加载完某个模块后没有立即执行而是等到遇到require语句的时再执行。
+所以，他们两者的不同导致各自的优点是AMD用户体验好，因为模块提前执行了；CMD性能好，因为只有用户需要的时候才执行。
+--------------------------------------------------------------------------------------------------
+//require 和import(es6)的区别：（面试必问）
+二者都是为了js模块化编程使用
+【1.遵循规范】
+require是AMD规范引入方式
+import是es6的一个语法标准，如果要兼容浏览器必需要转化为es5的语法
+【2.调用时间】
+require是运行时调用，所以理论上可以放在代码的任何地方
+import是编译时调用，所以必须放在文件开头
+【3.本质】
+require是赋值过程，其结果为对象，数字，字符串，函数等，再把require的结果赋值给某个变量
+import是解构过程
+require遵循CommonJS/AMD，只能在运行时确定模块的依赖关系及输入/输出的变量，无法进行静态优化
+import支持编译时静态分析，便于JS引入宏和类型检验，动态绑定
+-----------------------------------------------------------------------------------------------
+7.17
+【path】
+path.resolve()  会将最后一个参数转化为绝对路径
+path.normalize() 路径的格式化
+path.extname()   获取文件的扩展名
+path.format()    将对象转化为路径
+path.isAbsolute() 返回绝对路径
+path.join()     将多个路径进行拼接
+path.relative    返回相对路径
+path.dirname()   返回文件目录
+path.parse()     解析文件路径
+【模块抛出(暴露)】
+module.exports  exports的区别：
+1.exports是module.exports的引用
+2.module.exports默认是一个空对象，也必须是一个空对象,反之会覆盖exports的值
+
+export default
+node_modules        项目依赖       npm包管理工具
+【queryString】  查询字符串
+
+【npm】--------------------------------------------------------------------
+npm    node的包管理工具
+npm init === npm init -y  项目初始化  =>package.json
+npm install            下载              ==  npm i
+keywords               有利于seo优化
+--save                 下载到生产环境     ==    --S
+--save-dev             下载到开发环境     ==    --D
+npm uninstall          卸载 
+生产环境
+      线上运行的环境     dependencies    项目依赖
+开发环境
+      开发过程中        devdependencies
+
+niuyuri大写，时分秒小写
+format()  //时间戳格式化
+var time=sd.format(new Data(),"YYYY-MM-DD-hh-mm-ss")
+//距离当前时间几秒
+time=sd.format(new DataCue())
+
+
+npm install formidable
+【ejs】--------------------------------------------------------------------------------------------------
+模板引擎  ejs  数据   读取模板（ejs）
+建ejs（html）  【作用】：高效的渲染数据
+<%%> 书写脚本标签 <>  <%=%> 输出数据的模板 <%- %>输出原文  <%_ %> 去前面的空格  <% _%> 去后面的空格     
+ <%#refer%>    注释           <%=%>  输出
+两种渲染方式：
+1.render 渲染（模板，数据(必须为对象的格式)）     
+compiler  编译（字符串，option：可选）
+include 
+app.set('views', __dirname + '/views')；    设置模板引擎为ejs
+app.set('view engine', 'jade')；            规定模板的具体目录
+【express】-------------------------------------------------------------------------------
+express node 里面的框架
+定义：基于node封装的上层服务框架
+核心：中间件
+1.express的核心
+2.中间件
+3.路由
+4.提供API
+var app=express()
+app.get('路径',回调)
+parmas  接收动态路由参数   
+ 相当于一个get请求    //不区分大小写   同时支持链式操作
+ 获取动态路由
+接收get方式传输过来的数据通过  req.query(接收get传输过来的值)
+post  中间件 body-parser
+
+express.static()  使用静态资源(读取静态的文件夹的路径)
+path.resolve(__dirname,'pub')  __dirname读目录
+app.use(express,static(pub))       使用   中间件  插件
+【7.19】------------------------------------------------------
+body-parser
+post json 字符串   处理json数据  app.use(bodyParser.json())
+处理字符串数据的请求              app.use(bodyParser.urlencoded({extends:false}))
+路由
+cookie的特点：保存在浏览器的本地；
+             不过期会一直存在，
+             容易受到攻击，
+             大小不能超过4k；
+             携带的信息易被篡改
+设置cookie
+domain 域名   MaxAge  有效期     size  大小    Exprise  过期时间 httpOnly 防止xss攻击
+【signed  true】
+session
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+【git】  分布式管理系统   更友好    GitHub         码云
+svn      集中式管理系统   1.本地  2.服务区
+分布式：：1.本地区   2.暂存区   3.服务区
+git init 项目初始化
+git status  查看当前项目的状态
+git add     添加所有文件缓存   git add <File>
+git commit -m “注释”  提交
+git remote add origin
+身份效验：
+git config global user.name   ''  校验
+git config global user.email  ''
+
+
+
+
+下周
+mongodb
+koa
+
+
+
+
+
+
+
+
+
+
+
+作业：
+根据路径判断是老师还是学生，并且输工号
+
+
+预习：art-tempalte
+crypto    node里面的加密
+express
+-----------------------------------------------------------------------------------
+7.18------------------------------------------------
+art-tempalte:目的：服务端也具有模板渲染的能力  模板
+作业：
+从aa的文件夹中取出所有的文件夹       for   let
+send和end的区别：
+mongodb
+
