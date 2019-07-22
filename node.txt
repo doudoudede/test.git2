@@ -188,8 +188,10 @@ git checkout -b 分支名称       创建并切换到当前分支
 git push --set-upstream origin 分支名称   提交分支到远端
 问题：会把master分支原有的内容也提交上去？
 解决方案：
-merge:
+git merge:
 -d 分支名称
+git push origin :分支名
+分支作用：
 
 
 esc 退出
