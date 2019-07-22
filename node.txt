@@ -188,16 +188,35 @@ git checkout -b 分支名称       创建并切换到当前分支
 git push --set-upstream origin 分支名称   提交分支到远端
 问题：会把master分支原有的内容也提交上去？
 解决方案：
-git merge:
--d 分支名称
-git push origin :分支名
+git merge:  合并(a作为主干，b作为分支，进行合并时需切换到a主干上，再进行合并)
+git push origin master         
+git branch -d 分支名称         删除本地分支
+git push origin :分支名        删除远端分支
 分支作用：
-
-
+1.便于功能的独立开发
+2.git clone 地址  克隆项目  针对于第一对项目进行比较  
+3.git pull          拉取    针对远端的分支和内容
+4.git fetch         拉取    针对远端内容
+5.git diff          版本之间的对比
+6.git tag           打标签
+7.git stash         暂存
 esc 退出
 
 
-
+【7.22】
+1.关系型数据库  特点:1.数据严格  比如:orancle  mysql sqllite sqlserve
+库与表的关系
+库 db   集合  table
+2.非关系型数据库    比如:mongodb  nosql
+数据库的作用：1.仓库
+            2.存取数据
+            3.面向文档    json
+库 db   集合 collection
+启动mongdb
+启动服务器
+mongod --dbpath =“d:/mongdb/data”
+启动客户端
+mongo
 
 下周
 mongodb
