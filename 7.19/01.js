@@ -4,8 +4,10 @@ var bodyParser=require('body-parser')
 var path=require('path')
 var public=path.resolve(__dirname,'static')
 var app=express()
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extends:false}))
+
 app.use(express.static(public))
 app.get('/',(req,res)=>{
     res.send('首页')

@@ -162,18 +162,33 @@ domain 域名   MaxAge  有效期     size  大小    Exprise  过期时间 http
 session
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
-【git】  分布式管理系统   更友好    GitHub         码云
+【git】  分布式管理系统   更友好    GitHub 仓库       hitlab  云平台         码云   基于linux
 svn      集中式管理系统   1.本地  2.服务区
-分布式：：1.本地区   2.暂存区   3.服务区
-git init 项目初始化
+分布式：：1.本地区   2.暂存区   3.服务区(远端)
+git init 项目初始化  项目中只执行一次就好
+git config --goobal user.name ""
+git config --goobal user.email ""
 git status  查看当前项目的状态
-git add  .   添加所有文件缓存   git add <File>
-git commit -m “注释”  提交
-git remote add origin
-git push -u origin  master
+git add  .   添加所有文件缓存   git add <File>  添加一个
 身份效验：
 git config global user.name   ''  校验
 git config global user.email  ''
+git commit -m “注释”  提交
+git remote add origin   仓库地址
+git push -u origin  master   第一次提交
+git push    后面的提交
+
+
+git branch  创建分支
+git branch -r                 列出远端所有分支
+git branch  -a                 列出本地和远端的所有分支
+git branch  分支名称           创建分支但停留在当前分支(master)
+git checkout 分支名称          切换名称
+git checkout -b 分支名称       创建并切换到当前分支
+git push --set-upstream origin 分支名称   提交分支到远端
+问题：会把master分支原有的内容也提交上去？
+解决方案
+esc 退出
 
 
 
